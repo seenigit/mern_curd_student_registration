@@ -1,0 +1,7 @@
+a.navbar-brand, a.nav-link{
+  color: white
+}
+
+a.navbar-brand:hover, a.nav-link:hover {
+  color: aqua;
+}
