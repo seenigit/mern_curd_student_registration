@@ -12,8 +12,6 @@ const RenderStudent = (props) => {
     const handleOnDelete = async (id) => {
         if (window.confirm('Are you sure you wish to delete this record?')) {
             let res = await studentService.delete(id);
-            console.log('---after delete---')
-            console.log(res)
             props.getStudents();
         }
     }

@@ -69,7 +69,7 @@ export default class EditStudent extends React.Component {
 
     this.setState({formFields : {...this.state.formFields,
       [name]: value
-    }}, () => {console.log('state is'); console.log(this.state)})
+    }})
     
     e.preventDefault();
   }
@@ -82,13 +82,12 @@ export default class EditStudent extends React.Component {
     try {
       await studentService.update(this.props.match.params.id, this.state.formFields);
       
-      this.setState({ formSubmitting: 'Submitted Successfully' })
+      this.setState({ formSubmitting: 'Updated Successfully' })
       
       setTimeout(() => {
         this.setState(this.baseState)
       }, 2000);
     } catch(e) {
-      console.log(e.message)
       this.setState({ formSubmitting: e.message })
     }
   }
@@ -125,9 +124,6 @@ export default class EditStudent extends React.Component {
   }
 
   render() {
-    console.log(this.state.formValid)
-    console.log(this.state.buttonDisabled)
-    console.log((!this.state.formValid && this.state.buttonDisabled))
     return (
       <div>
       <h2>Edit Student</h2>
@@ -144,7 +140,7 @@ export default class EditStudent extends React.Component {
         
         <div className="form-group">
           <FormFieldGroup type="text" name="dob" className="form-control br-radius-zero" id="dob"
-                          placeholder="DOB"
+                          placeholder="YYYY/MM/DD"
                           title="DOB"
                           handleOnChange={this.handleOnChange}
                           value={this.state.formFields.dob}

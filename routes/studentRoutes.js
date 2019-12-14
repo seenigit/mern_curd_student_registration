@@ -1,4 +1,4 @@
-import {mongoose} from 'mongoose'
+const mongoose = require('mongoose');
 const Student = mongoose.model('students');
 
 module.exports = (app) => {

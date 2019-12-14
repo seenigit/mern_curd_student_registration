@@ -57,7 +57,7 @@ export default class CreateStudent extends React.Component {
 
     this.setState({formFields : {...this.state.formFields,
       [name]: value
-    }}, () => {console.log('state is'); console.log(this.state)})
+    }})
     
     e.preventDefault();
   }
@@ -88,10 +88,6 @@ export default class CreateStudent extends React.Component {
     formErrorMessage.dob = ((this.state.formFields.dob).length < 1) ? 'Please enter dob' : '';
     
     if(this.state.formFields.dob !== '') {
-      console.log(formErrorMessage.dob)
-      console.log('--is valid--')
-      console.log(moment(this.state.formFields.dob, 'YYYY/MM/DD', true).isValid())
-
       formErrorMessage.dob = (!moment(this.state.formFields.dob, 'YYYY/MM/DD', true).isValid()) ? 'Please enter a valid date' : ''
     }
 
@@ -117,9 +113,6 @@ export default class CreateStudent extends React.Component {
   }
 
   render() {
-    console.log(this.state.formValid)
-    console.log(this.state.buttonDisabled)
-    console.log((!this.state.formValid && this.state.buttonDisabled))
     return (
       <div>
       <h2>Create Student</h2>
@@ -136,7 +129,7 @@ export default class CreateStudent extends React.Component {
         
         <div className="form-group">
           <FormFieldGroup type="text" name="dob" className="form-control br-radius-zero" id="dob"
-                          placeholder="DOB"
+                          placeholder="YYYY/MM/DD"
                           title="DOB"
                           handleOnChange={this.handleOnChange}
                           value={this.state.formFields.dob}
