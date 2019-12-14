@@ -19,7 +19,8 @@
 * npm install
 * cd client
 * npm install
-* npm run dev
+* cd..
+* npm run dev(Make sure `monogod` is running before running this command)
 </pre>
 
 **# Reference Sites:**
